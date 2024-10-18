@@ -1,5 +1,4 @@
 // Crear un cliente para supabase
-
 const dotenv = require("dotenv");
 dotenv.config();
 
