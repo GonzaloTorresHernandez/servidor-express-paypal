@@ -7,6 +7,7 @@ const authRoutes = require("./routes/authRoutes");
 const carroRoutes = require("./routes/carroRoutes");
 const pagosRoutes = require("./routes/pagosRoutes");
 const productosRoutes = require("./routes/productosRoutes");
+const errorHandler = require("./middleware/errorHandler");
 // const supaRoutes = require("./routes/supaRoutes");
 
 const app = express();
@@ -21,10 +22,12 @@ const PORT = process.env.PORT;
 app.use(helmet());
 app.use(bodyParser.json());
 
+app.use(errorHandler);  // aplicar el manejador de errores
+
 app.use("/api/auth", authRoutes);
 // app.use("/api/carro", carroRoutes);
 // app.use("/api/pago", pagosRoutes);
-// app.use("/api/productos", productosRoutes);
+app.use("/api/productos", productosRoutes);
 // app.use("/api/supa", supaRoutes);
 
 app.listen(PORT, () => {
