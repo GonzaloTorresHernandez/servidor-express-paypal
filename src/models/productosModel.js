@@ -20,7 +20,7 @@ exports.editarProducto = async(nombre, precio, imagen, id) =>{
     return rows[0];
 };
 
-exports.eliminarProducto = async() =>{
+exports.eliminarProducto = async(id) =>{
     const {rows} = await pool.query("DELETE FROM productos WHERE id_producto = $1 RETURNING *", [id]);
     return rows[0];
 };
