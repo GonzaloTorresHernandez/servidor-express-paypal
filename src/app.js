@@ -25,8 +25,8 @@ app.use(bodyParser.json());
 app.use(errorHandler);  // aplicar el manejador de errores
 
 app.use("/api/auth", authRoutes);
-// app.use("/api/carro", carroRoutes);
-// app.use("/api/pago", pagosRoutes);
+app.use("/api/carro", carroRoutes);
+app.use("/api/pago", pagosRoutes);
 app.use("/api/productos", productosRoutes);
 // app.use("/api/supa", supaRoutes);
 
