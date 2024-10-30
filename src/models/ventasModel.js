@@ -11,6 +11,6 @@ exports.crearVenta = async(id_usuario, estado, total) =>{
 };
 
 exports.confirmarVenta = async(estado, id_venta) =>{
-    const {rows} = await pool.query("UPDATE ventas SET estado = $1 WHERE id_venta = $4 RETURNING *", [estado, id_venta]);
+    const {rows} = await pool.query("UPDATE ventas SET estado = $1 WHERE id_venta = $2 RETURNING *", [estado, id_venta]);
     return rows[0];
 };

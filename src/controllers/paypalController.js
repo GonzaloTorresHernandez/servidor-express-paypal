@@ -37,10 +37,10 @@ exports.crearPago = (req, res, next) => {
 };
 
 exports.ejecutarPago = async (req, res, next) => {
-    const idVenta = req.params;
-    const {pagoId, pagadorId} = req.query;
+    const {idVenta} = req.params;
+    const {paymentId, PayerID} = req.query;
     const execute_payment_json = {
-        payer_id: pagadorId,
+        payer_id: PayerID,
         transactions: [{
             amount: {
                 currency: "USD",
@@ -49,7 +49,7 @@ exports.ejecutarPago = async (req, res, next) => {
         }]
     };
 
-    paypal.payment.execute(pagoId, execute_payment_json, async function name(error, payment) {
+    paypal.payment.execute(paymentId, execute_payment_json, async function name(error, payment) {
         if (error) {
             next(error);
         }else{
