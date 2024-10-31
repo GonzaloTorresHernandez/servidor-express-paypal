@@ -8,7 +8,7 @@ const carroRoutes = require("./routes/carroRoutes");
 const pagosRoutes = require("./routes/pagosRoutes");
 const productosRoutes = require("./routes/productosRoutes");
 const errorHandler = require("./middleware/errorHandler");
-// const supaRoutes = require("./routes/supaRoutes");
+const usuariosRoutes = require("./routes/usuariosRoutes");
 
 const app = express();
 // const corsOptions = {
@@ -28,7 +28,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/carro", carroRoutes);
 app.use("/api/pago", pagosRoutes);
 app.use("/api/productos", productosRoutes);
-// app.use("/api/supa", supaRoutes);
+app.use("/api/usuarios", usuariosRoutes);
 
 app.listen(PORT, () => {
     console.log("Server iniciado en el puerto " + PORT);

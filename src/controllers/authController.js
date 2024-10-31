@@ -17,7 +17,8 @@ const registrar = async (req, res) => {
         id_auth_supabase: data.user.id,
         nombre_usuario: "generico"
     };
-    await   usuarioModel.crearUsuario(parametros);
+    const {rol_usuario, id_auth_supabase, nombre_usuario} = parametros;
+    await usuarioModel.crearUsuario(rol_usuario, id_auth_supabase, nombre_usuario);
 };
 
 const login = async (req, res) => {
